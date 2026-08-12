@@ -1,51 +1,55 @@
 {
   "profile": {
-    "name": "Prénom Nom",
-    "bio": "Ingénieur logiciel & DevOps – Paris, France. Spécialisé en infra, backend, cloud et projets open source.",
+    "name": "Rémy Cuvelier",
+    "bio": "Apprenti Ingénieur avant-vente – Annecy, France. Spécialisé en SD-WAN et cybersécurité.",
     "avatar": "avatar.jpg",
     "links": [
       {
         "label": "GitHub",
-        "url": "https://github.com/ton-user"
+        "url": "https://github.com/Rem7474"
       },
       {
         "label": "LinkedIn",
-        "url": "https://linkedin.com/in/ton-profil"
+        "url": "https://linkedin.com/in/remycuvelier/"
       },
       {
         "label": "Email",
-        "url": "mailto:ton.email@exemple.com"
+        "url": "mailto:remy.cuvelier@outlook.com"
       }
     ]
   },
   "projects": [
     {
-      "title": "OpenCharge Backend",
-      "description": "Agrégation de données de bornes de recharge EV (tarifs, disponibilité, opérateurs). Scraping, API et stockage optimisé. Stack : Python, HTTP clients, DB, API REST.",
+      "title": "ServerSupervisor",
+      "description": "🖥️ Dashboard de supervision d'infrastructure : monitoring VMs/Docker/APT, alertes, tâches planifiées, support Proxmox VE et Nginx Proxy Manager, sondes uptime/SSL et webhooks Git. Go + Vue.js + TimescaleDB.",
       "links": [
         {
           "label": "GitHub",
-          "url": "https://github.com/ton-user/opencharge-backend"
+          "url": "https://github.com/Rem7474/ServerSupervisor"
         }
       ]
     },
     {
-      "title": "Infra Self-Hosted",
-      "description": "Infra perso auto-hébergée : Proxmox, ZFS, Docker/Kubernetes, VPN, backups (Restic/Borg), services type Nextcloud et Home Assistant.",
+      "title": "Comparateur électricité France",
+      "description": "⚡ Analysez vos données Enedis et comparez les tarifs électriques (Base, HP/HC, Tempo…). Simulation photovoltaïque, export PDF/Excel.",
       "links": [
         {
-          "label": "Dotfiles / Ansible",
-          "url": "https://github.com/ton-user/infra-ansible"
+          "label": "Comparateur",
+          "url": "https://elec.remcorp.fr/"
+        },
+         {
+          "label": "GitHub",
+          "url": "https://github.com/Rem7474/comparElecFrance"
         }
       ]
     },
     {
-      "title": "Home IoT",
-      "description": "Système domotique maison : ESP32, MQTT, Zigbee, LoRaWAN, intégration Home Assistant et automatisations réseau.",
+      "title": "CarsTCO (Total Cost of Ownership)",
+      "description": "🚗 Comparez le coût total de possession (TCO) de 2 à 6 véhicules (thermique, électrique). Financement, énergie, entretien, fiscalité, revente.",
       "links": [
         {
           "label": "GitHub",
-          "url": "https://github.com/ton-user/home-iot"
+          "url": "https://carstco.remcorp.fr/"
         }
       ]
     }
