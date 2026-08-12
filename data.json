@@ -1,0 +1,53 @@
+{
+  "profile": {
+    "name": "Prénom Nom",
+    "bio": "Ingénieur logiciel & DevOps – Paris, France. Spécialisé en infra, backend, cloud et projets open source.",
+    "avatar": "avatar.jpg",
+    "links": [
+      {
+        "label": "GitHub",
+        "url": "https://github.com/ton-user"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://linkedin.com/in/ton-profil"
+      },
+      {
+        "label": "Email",
+        "url": "mailto:ton.email@exemple.com"
+      }
+    ]
+  },
+  "projects": [
+    {
+      "title": "OpenCharge Backend",
+      "description": "Agrégation de données de bornes de recharge EV (tarifs, disponibilité, opérateurs). Scraping, API et stockage optimisé. Stack : Python, HTTP clients, DB, API REST.",
+      "links": [
+        {
+          "label": "GitHub",
+          "url": "https://github.com/ton-user/opencharge-backend"
+        }
+      ]
+    },
+    {
+      "title": "Infra Self-Hosted",
+      "description": "Infra perso auto-hébergée : Proxmox, ZFS, Docker/Kubernetes, VPN, backups (Restic/Borg), services type Nextcloud et Home Assistant.",
+      "links": [
+        {
+          "label": "Dotfiles / Ansible",
+          "url": "https://github.com/ton-user/infra-ansible"
+        }
+      ]
+    },
+    {
+      "title": "Home IoT",
+      "description": "Système domotique maison : ESP32, MQTT, Zigbee, LoRaWAN, intégration Home Assistant et automatisations réseau.",
+      "links": [
+        {
+          "label": "GitHub",
+          "url": "https://github.com/ton-user/home-iot"
+        }
+      ]
+    }
+  ]
+}
