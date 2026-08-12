@@ -79,7 +79,7 @@ function renderProjects(data) {
 function renderFooter(data) {
   const footerText = document.getElementById("footer-text");
   const currentYear = new Date().getFullYear();
-  footerText.textContent = "�" + currentYear + " " + data.profile.name;
+  footerText.textContent = currentYear + " " + data.profile.name;
 }
 
 function triggerEntranceAnimations() {
