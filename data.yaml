@@ -16,30 +16,15 @@ profile:
 
 # MANUEL — vos projets mis en avant. Éditez librement, jamais touché par
 # le script de synchro.
-projects:
-  - title: ServerSupervisor
-    description: '🖥️ Dashboard de supervision d''infrastructure : monitoring
-      VMs/Docker/APT, alertes, tâches planifiées, support Proxmox VE et Nginx
-      Proxy Manager, sondes uptime/SSL et webhooks Git. Go + Vue.js +
-      TimescaleDB.'
-    links:
-      - label: GitHub
-        url: https://github.com/Rem7474/ServerSupervisor
-  - title: Comparateur électricité France
-    description: ⚡ Analysez vos données Enedis et comparez les tarifs électriques
-      (Base, HP/HC, Tempo…). Simulation photovoltaïque, export PDF/Excel.
-    links:
-      - label: Comparateur
-        url: https://elec.remcorp.fr/
-      - label: GitHub
-        url: https://github.com/Rem7474/comparElecFrance
-  - title: CarsTCO (Total Cost of Ownership)
-    description: 🚗 Comparez le coût total de possession (TCO) de 2 à 6 véhicules
-      (thermique, électrique). Financement, énergie, entretien, fiscalité,
-      revente.
-    links:
-      - label: Site
-        url: https://carstco.remcorp.fr/
+# projects:
+#  - title: Comparateur électricité France
+#    description: ⚡ Analysez vos données Enedis et comparez les tarifs électriques
+#      (Base, HP/HC, Tempo…). Simulation photovoltaïque, export PDF/Excel.
+#    links:
+#      - label: Comparateur
+#        url: https://elec.remcorp.fr/
+#      - label: GitHub
+#        url: https://github.com/Rem7474/comparElecFrance
 
 # AUTOMATIC — régénéré par scripts/sync-pinned-projects.mjs à partir des
 # dépôts épinglés du profil GitHub (workflow sync-pinned-projects.yml,
