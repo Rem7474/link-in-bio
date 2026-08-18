@@ -2,23 +2,48 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>Chargement…</title>
+  <title>Rémy Cuvelier – Liens &amp; Projets</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Page personnelle – liens et projets." />
+  <meta name="description" content="Rémy Cuvelier, apprenti ingénieur avant-vente spécialisé en SD-WAN et cybersécurité. Retrouvez mes liens et mes projets (ServerSupervisor, comparateur électricité, CarsTCO)." />
+  <link rel="canonical" href="https://rem7474.github.io/link-in-bio/" />
+
+  <!-- Open Graph / réseaux sociaux -->
+  <meta property="og:type" content="profile" />
+  <meta property="og:title" content="Rémy Cuvelier – Liens &amp; Projets" />
+  <meta property="og:description" content="Apprenti ingénieur avant-vente – Annecy, France. Spécialisé en SD-WAN et cybersécurité." />
+  <meta property="og:image" content="https://rem7474.github.io/link-in-bio/avatar.jpg" />
+  <meta property="og:url" content="https://rem7474.github.io/link-in-bio/" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Rémy Cuvelier – Liens &amp; Projets" />
+  <meta name="twitter:description" content="Apprenti ingénieur avant-vente – Annecy, France. Spécialisé en SD-WAN et cybersécurité." />
+  <meta name="twitter:image" content="https://rem7474.github.io/link-in-bio/avatar.jpg" />
+
+  <link rel="icon" href="avatar.jpg" type="image/jpeg" />
+  <link rel="apple-touch-icon" href="avatar.jpg" />
+
   <link rel="stylesheet" href="styles.css" />
+  <noscript>
+    <style>.fade-up { opacity: 1 !important; transform: none !important; }</style>
+  </noscript>
 </head>
 <body>
   <main class="page">
 
-    <!-- Profil / Liens -->
+    <!-- Profil / Liens : le contenu statique ci-dessous doit rester synchro avec data.json (fallback no-JS + anti-CLS) -->
     <section class="profile-section fade-up">
       <div class="profile-card fade-up">
-        <img id="avatar" alt="Photo de profil" class="avatar" />
+        <img id="avatar" src="avatar.jpg" alt="Photo de profil" class="avatar" width="104" height="104" />
 
-        <h1 id="name" class="name fade-up"></h1>
-        <p id="bio" class="bio fade-up"></p>
+        <h1 id="name" class="name fade-up">Rémy Cuvelier</h1>
+        <p id="bio" class="bio fade-up">Apprenti Ingénieur avant-vente – Annecy, France. Spécialisé en SD-WAN et cybersécurité.</p>
 
-        <div id="links" class="links"></div>
+        <div id="links" class="links">
+          <noscript>
+            <a class="link" href="https://github.com/Rem7474" target="_blank" rel="noopener">GitHub</a>
+            <a class="link" href="https://linkedin.com/in/remycuvelier/" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="link" href="mailto:remy.cuvelier@outlook.com">Email</a>
+          </noscript>
+        </div>
       </div>
     </section>
 
@@ -26,11 +51,15 @@
     <section class="projects-section fade-up">
       <h2 class="section-title fade-up">Projets &amp; Sites</h2>
 
-      <div id="projects" class="projects-grid"></div>
+      <div id="projects" class="projects-grid">
+        <noscript>
+          <p style="text-align:center;">Activez JavaScript pour voir la liste des projets.</p>
+        </noscript>
+      </div>
     </section>
 
     <footer class="footer fade-up">
-      <p id="footer-text"></p>
+      <p id="footer-text">Rémy Cuvelier</p>
     </footer>
   </main>
 

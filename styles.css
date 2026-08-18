@@ -215,3 +215,31 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+/* -------- Mode sombre -------- */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #121214;
+    --card-bg: #1c1c1f;
+    --text: #f2f2f3;
+    --muted: #a0a0a6;
+    --primary: #f2f2f3;
+    --primary-hover: #ffffff;
+    --chip-bg: #2a2a2e;
+    --chip-bg-hover: #35353a;
+    --shadow-soft: 0 8px 24px rgba(0,0,0,0.35);
+  }
+
+  .link {
+    color: #111111;
+  }
+
+  .project-description {
+    color: var(--muted);
+  }
+
+  .avatar {
+    border-color: rgba(255,255,255,0.1);
+  }
+}
