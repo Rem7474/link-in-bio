@@ -37,11 +37,11 @@ function renderProfile(data) {
   });
 }
 
-function renderProjects(data) {
-  const projectsContainer = document.getElementById("projects");
-  projectsContainer.innerHTML = "";
+function renderProjectList(projects, containerId) {
+  const container = document.getElementById(containerId);
+  container.innerHTML = "";
 
-  data.projects.forEach(project => {
+  projects.forEach(project => {
     const card = document.createElement("article");
     card.className = "project-card";
 
@@ -72,7 +72,7 @@ function renderProjects(data) {
     card.appendChild(desc);
     card.appendChild(linksDiv);
 
-    projectsContainer.appendChild(card);
+    container.appendChild(card);
   });
 }
 
@@ -84,7 +84,7 @@ function renderFooter(data) {
 
 function triggerEntranceAnimations() {
   // Sections principales
-  document.querySelectorAll('.profile-section.fade-up, .projects-section.fade-up').forEach(el => {
+  document.querySelectorAll('.profile-section.fade-up, .projects-section.fade-up, .section-title.fade-up').forEach(el => {
     el.classList.add('visible');
   });
 
@@ -120,7 +120,8 @@ async function init() {
   try {
     const data = await loadData();
     renderProfile(data);
-    renderProjects(data);
+    renderProjectList(data.projects, "projects");
+    renderProjectList(data.pinned_repos, "pinned-repos");
     renderFooter(data);
 
     // Déclenche les animations après que le DOM est peint

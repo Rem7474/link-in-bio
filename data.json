@@ -30,6 +30,42 @@
       ]
     },
     {
+      "title": "Comparateur électricité France",
+      "description": "⚡ Analysez vos données Enedis et comparez les tarifs électriques (Base, HP/HC, Tempo…). Simulation photovoltaïque, export PDF/Excel.",
+      "links": [
+        {
+          "label": "Comparateur",
+          "url": "https://elec.remcorp.fr/"
+        },
+        {
+          "label": "GitHub",
+          "url": "https://github.com/Rem7474/comparElecFrance"
+        }
+      ]
+    },
+    {
+      "title": "CarsTCO (Total Cost of Ownership)",
+      "description": "🚗 Comparez le coût total de possession (TCO) de 2 à 6 véhicules (thermique, électrique). Financement, énergie, entretien, fiscalité, revente.",
+      "links": [
+        {
+          "label": "Site",
+          "url": "https://carstco.remcorp.fr/"
+        }
+      ]
+    }
+  ],
+  "pinned_repos": [
+    {
+      "title": "ServerSupervisor",
+      "description": "🖥️ Dashboard de supervision d'infrastructure : monitoring VMs/Docker/APT, alertes, tâches planifiées, support Proxmox VE et Nginx Proxy Manager, sondes uptime/SSL et webhooks Git. Go + Vue.js + TimescaleDB.",
+      "links": [
+        {
+          "label": "GitHub",
+          "url": "https://github.com/Rem7474/ServerSupervisor"
+        }
+      ]
+    },
+    {
       "title": "comparElecFrance",
       "description": "⚡ Analysez vos données Enedis et comparez les tarifs électriques (Base, HP/HC, Tempo…). Simulation photovoltaïque, export PDF/Excel.",
       "links": [

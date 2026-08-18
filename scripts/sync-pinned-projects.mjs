@@ -1,9 +1,10 @@
 #!/usr/bin/env node
-// Regenerates the "projects" array in data.json from the GitHub-pinned
-// repositories on the profile below. Pinned status is only exposed via the
-// GraphQL API, and that query needs a token with `read:user` — the
-// Actions-issued GITHUB_TOKEN doesn't carry that scope, so a PAT is
-// required (see PINNED_REPOS_TOKEN below).
+// Regenerates the "pinned_repos" array in data.json from the GitHub-pinned
+// repositories on the profile below. The "projects" array is separate and
+// hand-curated — this script never touches it. Pinned status is only
+// exposed via the GraphQL API, and that query needs a token with
+// `read:user` — the Actions-issued GITHUB_TOKEN doesn't carry that scope,
+// so a PAT is required (see PINNED_REPOS_TOKEN below).
 
 import { readFile, writeFile } from "node:fs/promises";
 
@@ -54,7 +55,7 @@ if (errors) {
 
 const pinned = data.user.pinnedItems.nodes;
 
-const projects = pinned.map((repo) => {
+const pinnedRepos = pinned.map((repo) => {
   const links = [];
   if (repo.homepageUrl) {
     links.push({ label: "Site", url: repo.homepageUrl });
@@ -69,7 +70,7 @@ const projects = pinned.map((repo) => {
 });
 
 const current = JSON.parse(await readFile(DATA_FILE, "utf8"));
-current.projects = projects;
+current.pinned_repos = pinnedRepos;
 
 await writeFile(DATA_FILE, JSON.stringify(current, null, 2) + "\n", "utf8");
-console.log(`Synced ${projects.length} pinned project(s) into data.json.`);
+console.log(`Synced ${pinnedRepos.length} pinned repo(s) into data.json.`);

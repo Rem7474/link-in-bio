@@ -1,3 +1,7 @@
+# AUTOMATIC — this workflow owns data.json's "pinned_repos" array and
+# docs/screenshots/preview.png. Don't hand-edit either; they're
+# overwritten on the next run. Hand-curated content lives in data.json's
+# "projects" array instead, which this workflow never touches.
 name: Sync pinned projects & screenshot
 
 on:

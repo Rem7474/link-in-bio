@@ -5,8 +5,8 @@
 **Une page de liens perso, statique, sans framework.**
 
 Nom, bio, liens de contact et projets — tout est piloté par un seul
-fichier JSON. La liste des projets se met à jour toute seule à partir
-des dépôts épinglés sur GitHub.
+fichier JSON. Une deuxième liste, les dépôts épinglés GitHub, se met à
+jour toute seule.
 
 ### 👉 [**rem7474.github.io/link-in-bio**](https://rem7474.github.io/link-in-bio/) 👈
 
@@ -27,10 +27,13 @@ gratuitement sur GitHub Pages, sans build ni dépendance.
 
 - 📝 **Contenu piloté par [`data.json`](data.json)** — profil, liens et
   projets sont des données, pas du HTML à modifier
-- 🔄 **Projets auto-synchronisés** : un script interroge les dépôts
-  épinglés du profil GitHub via l'API GraphQL et régénère la liste des
-  projets (nom, description, lien du site + lien GitHub), via une
-  GitHub Action planifiée chaque jour et déclenchable à la main
+- ✍️ **Projets mis en avant, édités à la main** (`projects`) — pour les
+  quelques réalisations que vous voulez montrer en premier, avec un
+  titre et des liens sur mesure
+- 🔄 **Dépôts épinglés, auto-synchronisés** (`pinned_repos`) : un script
+  interroge les dépôts épinglés du profil GitHub via l'API GraphQL et
+  régénère cette liste (nom, description, lien du site + lien GitHub),
+  via une GitHub Action planifiée chaque jour et déclenchable à la main
 - 🌓 **Mode sombre** automatique (`prefers-color-scheme`)
 - 🔍 **SEO / partage** : meta description, Open Graph, Twitter Card,
   `canonical`, favicon
@@ -43,8 +46,9 @@ gratuitement sur GitHub Pages, sans build ni dépendance.
 Éditez [`data.json`](data.json) :
 
 - `profile` : nom, bio, avatar, liens de contact — à modifier à la main
-- `projects` : régénéré automatiquement, ne pas éditer directement (voir
-  ci-dessous)
+- `projects` : vos projets mis en avant — à modifier à la main, librement
+- `pinned_repos` : régénéré automatiquement à partir des dépôts épinglés
+  GitHub, ne pas éditer directement (voir ci-dessous)
 
 ## Synchronisation des projets épinglés
 
