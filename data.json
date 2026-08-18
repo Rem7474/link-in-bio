@@ -30,26 +30,72 @@
       ]
     },
     {
-      "title": "Comparateur électricité France",
+      "title": "comparElecFrance",
       "description": "⚡ Analysez vos données Enedis et comparez les tarifs électriques (Base, HP/HC, Tempo…). Simulation photovoltaïque, export PDF/Excel.",
       "links": [
         {
-          "label": "Comparateur",
+          "label": "Site",
           "url": "https://elec.remcorp.fr/"
         },
-         {
+        {
           "label": "GitHub",
           "url": "https://github.com/Rem7474/comparElecFrance"
         }
       ]
     },
     {
-      "title": "CarsTCO (Total Cost of Ownership)",
-      "description": "🚗 Comparez le coût total de possession (TCO) de 2 à 6 véhicules (thermique, électrique). Financement, énergie, entretien, fiscalité, revente.",
+      "title": "SolarCurve",
+      "description": "☀️ Estimez la production photovoltaïque annuelle heure par heure selon votre position GPS, puissance, inclinaison et azimut. Données PVGIS/PVWatts.",
       "links": [
         {
           "label": "Site",
-          "url": "https://carstco.remcorp.fr/"
+          "url": "https://solar.remcorp.fr/"
+        },
+        {
+          "label": "GitHub",
+          "url": "https://github.com/Rem7474/SolarCurve"
+        }
+      ]
+    },
+    {
+      "title": "AnnecyPark",
+      "description": "🅿️ Dashboard temps réel des parkings d'Annecy avec historique SQLite, prédictions par date et courbes de disponibilité journalières. Docker-ready.",
+      "links": [
+        {
+          "label": "Site",
+          "url": "https://park.remcorp.fr/"
+        },
+        {
+          "label": "GitHub",
+          "url": "https://github.com/Rem7474/AnnecyPark"
+        }
+      ]
+    },
+    {
+      "title": "CarsTCO",
+      "description": "🚗 Comparez le coût total de possession (TCO) de 2 à 6 véhicules (thermique, électrique). Financement, énergie, entretien, fiscalité française, revente.",
+      "links": [
+        {
+          "label": "Site",
+          "url": "http://carstco.remcorp.fr/"
+        },
+        {
+          "label": "GitHub",
+          "url": "https://github.com/Rem7474/CarsTCO"
+        }
+      ]
+    },
+    {
+      "title": "OpenCharge",
+      "description": "🔌 Carte interactive des bornes de recharge en France avec tarifs multi-opérateurs (Izivia, Electra, Tesla, Freshmile…). Go + React + PostGIS, pilotée par viewport.",
+      "links": [
+        {
+          "label": "Site",
+          "url": "https://opencharge.remcorp.fr/"
+        },
+        {
+          "label": "GitHub",
+          "url": "https://github.com/Rem7474/OpenCharge"
         }
       ]
     }
