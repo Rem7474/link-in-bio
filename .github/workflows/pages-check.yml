@@ -20,12 +20,15 @@ jobs:
         with:
           node-version: 20
 
-      - name: Validate data.json
-        run: node -e "JSON.parse(require('fs').readFileSync('data.json', 'utf8'))"
+      - name: Validate data.yaml
+        run: |
+          npm install --no-save yaml@2
+          node -e "require('yaml').parse(require('fs').readFileSync('data.yaml', 'utf8'))"
 
       - name: Check required files
         run: |
           test -f index.html || (echo "index.html missing" && exit 1)
           test -f styles.css || (echo "styles.css missing" && exit 1)
           test -f main.js || (echo "main.js missing" && exit 1)
-          test -f data.json || (echo "data.json missing" && exit 1)
+          test -f data.yaml || (echo "data.yaml missing" && exit 1)
+          test -f vendor/js-yaml.min.js || (echo "vendor/js-yaml.min.js missing" && exit 1)

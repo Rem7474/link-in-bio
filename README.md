@@ -5,8 +5,8 @@
 **Une page de liens perso, statique, sans framework.**
 
 Nom, bio, liens de contact et projets — tout est piloté par un seul
-fichier JSON. Une deuxième liste, les dépôts épinglés GitHub, se met à
-jour toute seule.
+fichier YAML commenté. Une deuxième liste, les dépôts épinglés GitHub,
+se met à jour toute seule.
 
 ### 👉 [**rem7474.github.io/link-in-bio**](https://rem7474.github.io/link-in-bio/) 👈
 
@@ -20,13 +20,15 @@ jour toute seule.
 
 Un "link in bio" classique (Linktree et consorts) impose une plateforme
 tierce, ses limites de personnalisation et souvent un abonnement. Ici,
-c'est trois fichiers statiques (HTML/CSS/JS vanilla), hébergés
-gratuitement sur GitHub Pages, sans build ni dépendance.
+c'est des fichiers statiques (HTML/CSS/JS vanilla), hébergés gratuitement
+sur GitHub Pages, sans build.
 
 ## Fonctionnalités
 
-- 📝 **Contenu piloté par [`data.json`](data.json)** — profil, liens et
-  projets sont des données, pas du HTML à modifier
+- 📝 **Contenu piloté par [`data.yaml`](data.yaml)** — profil, liens et
+  projets sont des données commentables, pas du HTML à modifier (parsé
+  côté client par [`vendor/js-yaml.min.js`](vendor/js-yaml.min.js), la
+  seule dépendance du site)
 - ✍️ **Projets mis en avant, édités à la main** (`projects`) — pour les
   quelques réalisations que vous voulez montrer en premier, avec un
   titre et des liens sur mesure
@@ -43,7 +45,8 @@ gratuitement sur GitHub Pages, sans build ni dépendance.
 
 ## Personnaliser
 
-Éditez [`data.json`](data.json) :
+Éditez [`data.yaml`](data.yaml) — les commentaires dans le fichier
+indiquent ce qui est manuel et ce qui est automatique :
 
 - `profile` : nom, bio, avatar, liens de contact — à modifier à la main
 - `projects` : vos projets mis en avant — à modifier à la main, librement
@@ -63,9 +66,16 @@ dans le secret de dépôt `PINNED_REPOS_TOKEN` pour que le workflow
 [`sync-pinned-projects.yml`](.github/workflows/sync-pinned-projects.yml)
 fonctionne.
 
+Le script édite uniquement la clé `pinned_repos` (via l'API Document du
+paquet [`yaml`](https://www.npmjs.com/package/yaml)) plutôt que de
+réécrire tout le fichier, pour que les commentaires et la section
+`projects` survivent. Les longues descriptions peuvent être
+re-découpées sur plusieurs lignes à cette occasion — c'est un effet de
+mise en forme du sérialiseur YAML, pas une perte de contenu.
+
 ## Lancer en local
 
-Fichiers statiques, aucune dépendance :
+Fichiers statiques :
 
 ```bash
 python3 -m http.server 8000

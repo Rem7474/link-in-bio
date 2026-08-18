@@ -1,7 +1,9 @@
-# AUTOMATIC — this workflow owns data.json's "pinned_repos" array and
+# AUTOMATIC — this workflow owns data.yaml's "pinned_repos" key and
 # docs/screenshots/preview.png. Don't hand-edit either; they're
-# overwritten on the next run. Hand-curated content lives in data.json's
-# "projects" array instead, which this workflow never touches.
+# overwritten on the next run. Hand-curated content lives in data.yaml's
+# "projects" key instead, which this workflow never touches (the sync
+# script edits pinned_repos in place via the `yaml` package's Document
+# API, so comments elsewhere in the file survive).
 name: Sync pinned projects & screenshot
 
 on:
@@ -11,13 +13,14 @@ on:
   push:
     branches:
       - main
-    # Deliberately excludes data.json and docs/** — both are written by this
+    # Deliberately excludes data.yaml and docs/** — both are written by this
     # workflow's own commits, and including them would retrigger it on push.
     paths:
       - "index.html"
       - "styles.css"
       - "main.js"
       - "avatar.jpg"
+      - "vendor/**"
 
 permissions:
   contents: write
@@ -36,10 +39,12 @@ jobs:
 
       # PINNED_REPOS_TOKEN must be a classic PAT with the `read:user` scope —
       # the default GITHUB_TOKEN cannot query pinnedItems.
-      - name: Sync pinned projects into data.json
+      - name: Sync pinned projects into data.yaml
         env:
           PINNED_REPOS_TOKEN: ${{ secrets.PINNED_REPOS_TOKEN }}
-        run: node scripts/sync-pinned-projects.mjs
+        run: |
+          npm install --no-save yaml@2
+          node scripts/sync-pinned-projects.mjs
 
       - name: Install screenshot tooling
         run: |
@@ -49,14 +54,14 @@ jobs:
       - name: Refresh site screenshot
         run: node scripts/screenshot.mjs
 
-      - name: Commit changes if data.json or screenshot updated
+      - name: Commit changes if data.yaml or screenshot updated
         run: |
-          if git diff --quiet -- data.json docs/screenshots/preview.png; then
+          if git diff --quiet -- data.yaml docs/screenshots/preview.png; then
             echo "No changes"
           else
             git config user.name "github-actions[bot]"
             git config user.email "github-actions[bot]@users.noreply.github.com"
-            git add data.json docs/screenshots/preview.png
+            git add data.yaml docs/screenshots/preview.png
             git commit -m "chore: sync pinned projects and refresh screenshot"
             git push
           fi

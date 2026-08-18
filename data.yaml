@@ -1,0 +1,101 @@
+# Source de contenu de la page. Chargé et parsé côté client (voir
+# vendor/js-yaml.min.js + main.js) — pas de build step.
+
+profile:
+  name: Rémy Cuvelier
+  bio: Apprenti Ingénieur avant-vente – Annecy, France. Spécialisé en SD-WAN et
+    cybersécurité.
+  avatar: avatar.jpg
+  links:
+    - label: GitHub
+      url: https://github.com/Rem7474
+    - label: LinkedIn
+      url: https://linkedin.com/in/remycuvelier/
+    - label: Email
+      url: mailto:remy.cuvelier@outlook.com
+
+# MANUEL — vos projets mis en avant. Éditez librement, jamais touché par
+# le script de synchro.
+projects:
+  - title: ServerSupervisor
+    description: '🖥️ Dashboard de supervision d''infrastructure : monitoring
+      VMs/Docker/APT, alertes, tâches planifiées, support Proxmox VE et Nginx
+      Proxy Manager, sondes uptime/SSL et webhooks Git. Go + Vue.js +
+      TimescaleDB.'
+    links:
+      - label: GitHub
+        url: https://github.com/Rem7474/ServerSupervisor
+  - title: Comparateur électricité France
+    description: ⚡ Analysez vos données Enedis et comparez les tarifs électriques
+      (Base, HP/HC, Tempo…). Simulation photovoltaïque, export PDF/Excel.
+    links:
+      - label: Comparateur
+        url: https://elec.remcorp.fr/
+      - label: GitHub
+        url: https://github.com/Rem7474/comparElecFrance
+  - title: CarsTCO (Total Cost of Ownership)
+    description: 🚗 Comparez le coût total de possession (TCO) de 2 à 6 véhicules
+      (thermique, électrique). Financement, énergie, entretien, fiscalité,
+      revente.
+    links:
+      - label: Site
+        url: https://carstco.remcorp.fr/
+
+# AUTOMATIC — régénéré par scripts/sync-pinned-projects.mjs à partir des
+# dépôts épinglés du profil GitHub (workflow sync-pinned-projects.yml,
+# quotidien + manuel). Ne pas éditer à la main : réécrit à chaque run,
+# mais uniquement cette clé — le reste du fichier (et ses commentaires)
+# est préservé.
+pinned_repos:
+  - title: ServerSupervisor
+    description: "🖥️ Dashboard de supervision d'infrastructure : monitoring
+      VMs/Docker/APT, alertes, tâches planifiées, support Proxmox VE et Nginx
+      Proxy Manager, sondes uptime/SSL et webhooks Git. Go + Vue.js +
+      TimescaleDB."
+    links:
+      - label: GitHub
+        url: https://github.com/Rem7474/ServerSupervisor
+  - title: comparElecFrance
+    description: ⚡ Analysez vos données Enedis et comparez les tarifs électriques
+      (Base, HP/HC, Tempo…). Simulation photovoltaïque, export PDF/Excel.
+    links:
+      - label: Site
+        url: https://elec.remcorp.fr/
+      - label: GitHub
+        url: https://github.com/Rem7474/comparElecFrance
+  - title: SolarCurve
+    description: ☀️ Estimez la production photovoltaïque annuelle heure par heure
+      selon votre position GPS, puissance, inclinaison et azimut. Données
+      PVGIS/PVWatts.
+    links:
+      - label: Site
+        url: https://solar.remcorp.fr/
+      - label: GitHub
+        url: https://github.com/Rem7474/SolarCurve
+  - title: AnnecyPark
+    description: 🅿️ Dashboard temps réel des parkings d'Annecy avec historique
+      SQLite, prédictions par date et courbes de disponibilité journalières.
+      Docker-ready.
+    links:
+      - label: Site
+        url: https://park.remcorp.fr/
+      - label: GitHub
+        url: https://github.com/Rem7474/AnnecyPark
+  - title: CarsTCO
+    description: 🚗 Comparez le coût total de possession (TCO) de 2 à 6 véhicules
+      (thermique, électrique). Financement, énergie, entretien, fiscalité
+      française, revente.
+    links:
+      - label: Site
+        url: http://carstco.remcorp.fr/
+      - label: GitHub
+        url: https://github.com/Rem7474/CarsTCO
+  - title: OpenCharge
+    description: 🔌 Carte interactive des bornes de recharge en France avec tarifs
+      multi-opérateurs (Izivia, Electra, Tesla, Freshmile…). Go + React +
+      PostGIS, pilotée par viewport.
+    links:
+      - label: Site
+        url: https://opencharge.remcorp.fr/
+      - label: GitHub
+        url: https://github.com/Rem7474/OpenCharge

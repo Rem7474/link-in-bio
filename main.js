@@ -1,12 +1,12 @@
-// Nom du fichier de données (JSON)
-const DATA_FILE = "data.json";
+// Nom du fichier de données (YAML, pour permettre des commentaires)
+const DATA_FILE = "data.yaml";
 
 async function loadData() {
   const res = await fetch(DATA_FILE);
   if (!res.ok) {
     throw new Error("Impossible de charger " + DATA_FILE);
   }
-  return res.json();
+  return jsyaml.load(await res.text());
 }
 
 function renderProfile(data) {
