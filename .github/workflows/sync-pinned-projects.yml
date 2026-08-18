@@ -1,9 +1,19 @@
-name: Sync pinned projects
+name: Sync pinned projects & screenshot
 
 on:
   workflow_dispatch:
   schedule:
     - cron: "17 3 * * *"
+  push:
+    branches:
+      - main
+    # Deliberately excludes data.json and docs/** — both are written by this
+    # workflow's own commits, and including them would retrigger it on push.
+    paths:
+      - "index.html"
+      - "styles.css"
+      - "main.js"
+      - "avatar.jpg"
 
 permissions:
   contents: write
@@ -27,14 +37,22 @@ jobs:
           PINNED_REPOS_TOKEN: ${{ secrets.PINNED_REPOS_TOKEN }}
         run: node scripts/sync-pinned-projects.mjs
 
-      - name: Commit changes if data.json updated
+      - name: Install screenshot tooling
         run: |
-          if git diff --quiet -- data.json; then
-            echo "No changes to data.json"
+          npm install --no-save playwright@latest
+          npx playwright install --with-deps chromium
+
+      - name: Refresh site screenshot
+        run: node scripts/screenshot.mjs
+
+      - name: Commit changes if data.json or screenshot updated
+        run: |
+          if git diff --quiet -- data.json docs/screenshots/preview.png; then
+            echo "No changes"
           else
             git config user.name "github-actions[bot]"
             git config user.email "github-actions[bot]@users.noreply.github.com"
-            git add data.json
-            git commit -m "chore: sync pinned projects from GitHub"
+            git add data.json docs/screenshots/preview.png
+            git commit -m "chore: sync pinned projects and refresh screenshot"
             git push
           fi
