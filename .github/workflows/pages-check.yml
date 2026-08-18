@@ -23,7 +23,7 @@ jobs:
       - name: Validate data.yaml
         run: |
           npm install --no-save yaml@2
-          node -e "require('yaml').parse(require('fs').readFileSync('data.yaml', 'utf8'))"
+          node scripts/validate-data.mjs
 
       - name: Check required files
         run: |

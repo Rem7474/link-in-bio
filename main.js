@@ -24,7 +24,7 @@ function renderProfile(data) {
   const linksContainer = document.getElementById("links");
   linksContainer.innerHTML = "";
 
-  links.forEach(link => {
+  (links || []).forEach(link => {
     const a = document.createElement("a");
     a.className = "link";
     a.href = link.url;
@@ -37,11 +37,22 @@ function renderProfile(data) {
   });
 }
 
+// `projects` est facultatif : une clé absente, vide (`projects:`, qui se
+// parse en `null`) ou une liste vide masque simplement la section
+// correspondante plutôt que de casser la page.
 function renderProjectList(projects, containerId) {
   const container = document.getElementById(containerId);
+  const section = container.closest(".projects-section");
+  const list = Array.isArray(projects) ? projects : [];
+
+  if (section) {
+    section.style.display = list.length === 0 ? "none" : "";
+  }
+  if (list.length === 0) return;
+
   container.innerHTML = "";
 
-  projects.forEach(project => {
+  list.forEach(project => {
     const card = document.createElement("article");
     card.className = "project-card";
 
@@ -56,7 +67,7 @@ function renderProjectList(projects, containerId) {
     const linksDiv = document.createElement("div");
     linksDiv.className = "project-links";
 
-    project.links.forEach(link => {
+    (project.links || []).forEach(link => {
       const a = document.createElement("a");
       a.className = "project-link";
       a.href = link.url;
