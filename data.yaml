@@ -16,8 +16,8 @@ profile:
 
 # MANUEL — vos projets mis en avant. Éditez librement, jamais touché par
 # le script de synchro.
-projects: 
-#  - title: Comparateur électricité France
+projects: #  - title: Comparateur électricité France
+
 #    description: ⚡ Analysez vos données Enedis et comparez les tarifs électriques
 #      (Base, HP/HC, Tempo…). Simulation photovoltaïque, export PDF/Excel.
 #    links:
