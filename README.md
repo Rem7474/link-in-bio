@@ -5,8 +5,7 @@
 **Une page de liens perso, statique, sans framework.**
 
 Nom, bio, liens de contact et projets — tout est piloté par un seul
-fichier YAML commenté. Une deuxième liste, les dépôts épinglés GitHub,
-se met à jour toute seule.
+fichier YAML. Mise à jour automatique des dépôts épinglés GitHub.
 
 ### 👉 [**rem7474.github.io/link-in-bio**](https://rem7474.github.io/link-in-bio/) 👈
 
@@ -26,9 +25,8 @@ sur GitHub Pages, sans build.
 ## Fonctionnalités
 
 - 📝 **Contenu piloté par [`data.yaml`](data.yaml)** — profil, liens et
-  projets sont des données commentables, pas du HTML à modifier (parsé
-  côté client par [`vendor/js-yaml.min.js`](vendor/js-yaml.min.js), la
-  seule dépendance du site)
+  projets, pas du HTML à modifier (parsé  côté client par [`vendor/js-yaml.min.js`](vendor/js-yaml.min.js),
+  la seule dépendance du site)
 - ✍️ **Projets mis en avant, édités à la main** (`projects`) — pour les
   quelques réalisations que vous voulez montrer en premier, avec un
   titre et des liens sur mesure
@@ -45,8 +43,7 @@ sur GitHub Pages, sans build.
 
 ## Personnaliser
 
-Éditez [`data.yaml`](data.yaml) — les commentaires dans le fichier
-indiquent ce qui est manuel et ce qui est automatique :
+Éditez [`data.yaml`](data.yaml) :
 
 - `profile` : nom, bio, avatar, liens de contact — à modifier à la main
 - `projects` : vos projets mis en avant — à modifier à la main, librement
@@ -67,11 +64,7 @@ dans le secret de dépôt `PINNED_REPOS_TOKEN` pour que le workflow
 fonctionne.
 
 Le script édite uniquement la clé `pinned_repos` (via l'API Document du
-paquet [`yaml`](https://www.npmjs.com/package/yaml)) plutôt que de
-réécrire tout le fichier, pour que les commentaires et la section
-`projects` survivent. Les longues descriptions peuvent être
-re-découpées sur plusieurs lignes à cette occasion — c'est un effet de
-mise en forme du sérialiseur YAML, pas une perte de contenu.
+paquet [`yaml`](https://www.npmjs.com/package/yaml)).
 
 ## Lancer en local
 
