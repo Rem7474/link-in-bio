@@ -12,8 +12,8 @@ profile:
   bio:
     fr: Apprenti Ingénieur avant-vente – Annecy, France. Spécialisé en SD-WAN et
       cybersécurité.
-    en: Pre-sales engineering apprentice – Annecy, France. Focused on SD-WAN
-      and cybersecurity.
+    en: Pre-sales engineering apprentice – Annecy, France. Focused on SD-WAN and
+      cybersecurity.
   avatar: avatar.jpg
   links:
     - label: GitHub
@@ -25,8 +25,8 @@ profile:
 
 # MANUAL — your featured projects. Edit freely, never touched by the
 # sync script.
-projects:
-#  - title: Comparateur électricité France
+projects: #  - title: Comparateur électricité France
+
 #    description:
 #      fr: ⚡ Analysez vos données Enedis et comparez les tarifs électriques
 #        (Base, HP/HC, Tempo…). Simulation photovoltaïque, export PDF/Excel.
