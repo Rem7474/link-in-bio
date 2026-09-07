@@ -5,10 +5,12 @@
   "scripts": {
     "validate": "node scripts/validate-data.mjs",
     "sync-pinned": "node scripts/sync-pinned-projects.mjs",
-    "screenshot": "node scripts/screenshot.mjs"
+    "screenshot": "node scripts/screenshot.mjs",
+    "favicon": "node scripts/generate-favicon.mjs"
   },
   "devDependencies": {
     "playwright": "1.63.0",
+    "sharp": "0.35.4",
     "yaml": "2.9.0"
   }
 }

@@ -43,6 +43,9 @@ free on GitHub Pages, with no build step.
   and regenerates this list (name, description, site link + GitHub
   link), via a GitHub Action scheduled daily and triggerable by hand
 - 🌓 **Automatic dark mode** (`prefers-color-scheme`)
+- 🔵 **Circular favicon** (`favicon.png`) — auto-generated from
+  `avatar.jpg` so the browser tab icon matches the circular avatar shown
+  on the page (CSS `border-radius` doesn't apply to favicons)
 - 🔍 **SEO / sharing**: meta description, Open Graph, Twitter Card,
   `canonical`, favicon
 - ♿ **Robust without JavaScript**: profile content duplicated as static
@@ -94,6 +97,7 @@ Then:
 npm run validate     # validate data.yaml's shape (also gates CI)
 npm run sync-pinned  # regenerate pinned_repos (needs PINNED_REPOS_TOKEN)
 npm run screenshot   # refresh docs/screenshots/preview.png via Playwright
+npm run favicon      # regenerate favicon.png from avatar.jpg
 ```
 
 ## Running locally

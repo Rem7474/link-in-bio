@@ -1,10 +1,10 @@
-# AUTOMATIC — this workflow owns data.yaml's "pinned_repos" key and
-# docs/screenshots/preview.png. Don't hand-edit either; they're
-# overwritten on the next run. Hand-curated content lives in data.yaml's
-# "projects" key instead, which this workflow never touches (the sync
-# script edits pinned_repos in place via the `yaml` package's Document
-# API, so comments elsewhere in the file survive).
-name: Sync pinned projects & screenshot
+# AUTOMATIC — this workflow owns data.yaml's "pinned_repos" key,
+# docs/screenshots/preview.png, and favicon.png. Don't hand-edit any of
+# them; they're overwritten on the next run. Hand-curated content lives
+# in data.yaml's "projects" key instead, which this workflow never
+# touches (the sync script edits pinned_repos in place via the `yaml`
+# package's Document API, so comments elsewhere in the file survive).
+name: Sync pinned projects, screenshot & favicon
 
 on:
   workflow_dispatch:
@@ -54,14 +54,17 @@ jobs:
       - name: Refresh site screenshot
         run: npm run screenshot
 
-      - name: Commit changes if data.yaml or screenshot updated
+      - name: Regenerate favicon
+        run: npm run favicon
+
+      - name: Commit changes if data.yaml, screenshot, or favicon updated
         run: |
-          if git diff --quiet -- data.yaml docs/screenshots/preview.png; then
+          if git diff --quiet -- data.yaml docs/screenshots/preview.png favicon.png; then
             echo "No changes"
           else
             git config user.name "github-actions[bot]"
             git config user.email "github-actions[bot]@users.noreply.github.com"
-            git add data.yaml docs/screenshots/preview.png
-            git commit -m "chore: sync pinned projects and refresh screenshot"
+            git add data.yaml docs/screenshots/preview.png favicon.png
+            git commit -m "chore: sync pinned projects, refresh screenshot and favicon"
             git push
           fi

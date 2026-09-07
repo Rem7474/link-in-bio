@@ -33,4 +33,5 @@ jobs:
           test -f styles.css || (echo "styles.css missing" && exit 1)
           test -f main.js || (echo "main.js missing" && exit 1)
           test -f data.yaml || (echo "data.yaml missing" && exit 1)
+          test -f favicon.png || (echo "favicon.png missing" && exit 1)
           test -f vendor/js-yaml.min.js || (echo "vendor/js-yaml.min.js missing" && exit 1)

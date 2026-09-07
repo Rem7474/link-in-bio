@@ -44,6 +44,10 @@ sur GitHub Pages, sans build.
   régénère cette liste (nom, description, lien du site + lien GitHub),
   via une GitHub Action planifiée chaque jour et déclenchable à la main
 - 🌓 **Mode sombre** automatique (`prefers-color-scheme`)
+- 🔵 **Favicon circulaire** (`favicon.png`) — généré automatiquement à
+  partir d'`avatar.jpg` pour que l'icône d'onglet corresponde à l'avatar
+  circulaire affiché sur la page (le `border-radius` CSS ne s'applique
+  pas aux favicons)
 - 🔍 **SEO / partage** : meta description, Open Graph, Twitter Card,
   `canonical`, favicon
 - ♿ **Robuste sans JavaScript** : contenu du profil dupliqué en HTML
@@ -95,6 +99,7 @@ Puis :
 npm run validate     # valide la structure de data.yaml (utilisé en CI)
 npm run sync-pinned  # régénère pinned_repos (nécessite PINNED_REPOS_TOKEN)
 npm run screenshot   # rafraîchit docs/screenshots/preview.png via Playwright
+npm run favicon      # régénère favicon.png à partir d'avatar.jpg
 ```
 
 ## Lancer en local
