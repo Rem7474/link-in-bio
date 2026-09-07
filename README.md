@@ -2,80 +2,110 @@
 
 # 🔗 link-in-bio
 
-**Une page de liens perso, statique, sans framework.**
+**A personal, static, framework-free link page.**
 
-Nom, bio, liens de contact et projets — tout est piloté par un seul
-fichier YAML. Mise à jour automatique des dépôts épinglés GitHub.
+Name, bio, contact links, and projects are all driven by a single
+YAML file. GitHub pinned repositories update automatically. The site
+itself has a FR/EN language switch.
 
 ### 👉 [**remcorp.fr**](https://remcorp.fr) 👈
+
+🇫🇷 Version française : [README.fr.md](README.fr.md)
 
 </div>
 
 <br>
 
-<img src="docs/screenshots/preview.png" alt="Aperçu de la page link-in-bio" width="100%">
+<img src="docs/screenshots/preview.png" alt="Preview of the link-in-bio page" width="100%">
 
-## Pourquoi ce projet ?
+## Why this project?
 
-Un "link in bio" classique (Linktree et consorts) impose une plateforme
-tierce, ses limites de personnalisation et souvent un abonnement. Ici,
-c'est des fichiers statiques (HTML/CSS/JS vanilla), hébergés gratuitement
-sur GitHub Pages, sans build.
+A typical "link in bio" tool (Linktree and friends) locks you into a
+third-party platform, its customization limits, and often a
+subscription. Here, it's static files (vanilla HTML/CSS/JS), hosted for
+free on GitHub Pages, with no build step.
 
-## Fonctionnalités
+## Features
 
-- 📝 **Contenu piloté par [`data.yaml`](data.yaml)** — profil, liens et
-  projets, pas du HTML à modifier (parsé  côté client par [`vendor/js-yaml.min.js`](vendor/js-yaml.min.js),
-  la seule dépendance du site)
-- ✍️ **Projets mis en avant, édités à la main** (`projects`) — pour les
-  quelques réalisations que vous voulez montrer en premier, avec un
-  titre et des liens sur mesure
-- 🔄 **Dépôts épinglés, auto-synchronisés** (`pinned_repos`) : un script
-  interroge les dépôts épinglés du profil GitHub via l'API GraphQL et
-  régénère cette liste (nom, description, lien du site + lien GitHub),
-  via une GitHub Action planifiée chaque jour et déclenchable à la main
-- 🌓 **Mode sombre** automatique (`prefers-color-scheme`)
-- 🔍 **SEO / partage** : meta description, Open Graph, Twitter Card,
+- 📝 **Content driven by [`data.yaml`](data.yaml)** — profile, links, and
+  projects, not HTML to edit (parsed client-side by
+  [`vendor/js-yaml.min.js`](vendor/js-yaml.min.js), the site's only
+  dependency)
+- 🌐 **Built-in i18n** — a FR/EN switch translates the interface (section
+  titles, footer, error messages) and the bilingual content in
+  `data.yaml` (`profile.bio`, `projects[].description`, defined as
+  `{fr, en}` objects); the language choice is remembered
+  (`localStorage`) and defaults to the browser's language
+- ✍️ **Hand-curated featured projects** (`projects`) — for the handful of
+  achievements you want to show first, with a custom title and links
+- 🔄 **Auto-synced pinned repositories** (`pinned_repos`): a script
+  queries the GitHub profile's pinned repositories via the GraphQL API
+  and regenerates this list (name, description, site link + GitHub
+  link), via a GitHub Action scheduled daily and triggerable by hand
+- 🌓 **Automatic dark mode** (`prefers-color-scheme`)
+- 🔍 **SEO / sharing**: meta description, Open Graph, Twitter Card,
   `canonical`, favicon
-- ♿ **Robuste sans JavaScript** : contenu du profil dupliqué en HTML
-  statique (fallback `<noscript>`), attributs `width`/`height` sur
-  l'avatar pour éviter le layout shift
+- ♿ **Robust without JavaScript**: profile content duplicated as static
+  HTML (`<noscript>` fallback), `width`/`height` attributes on the
+  avatar to avoid layout shift
 
-## Personnaliser
+## Customize
 
-Éditez [`data.yaml`](data.yaml) :
+Edit [`data.yaml`](data.yaml):
 
-- `profile` : nom, bio, avatar, liens de contact — à modifier à la main
-- `projects` : vos projets mis en avant — à modifier à la main, librement
-- `pinned_repos` : régénéré automatiquement à partir des dépôts épinglés
-  GitHub, ne pas éditer directement (voir ci-dessous)
+- `profile`: name, bio, avatar, contact links — edit by hand. `bio`
+  accepts either a plain string or a `{fr, en}` object for bilingual
+  rendering
+- `projects`: your featured projects — edit by hand, freely.
+  `description` accepts the same plain string or `{fr, en}` shape as
+  `profile.bio`
+- `pinned_repos`: auto-regenerated from GitHub pinned repositories, do
+  not edit directly (see below). Its `description` stays a plain string,
+  in whatever language the GitHub repo description is written in — the
+  language switch doesn't translate it
 
-## Synchronisation des projets épinglés
+## Syncing pinned projects
 
 ```bash
-PINNED_REPOS_TOKEN=ghp_xxx node scripts/sync-pinned-projects.mjs
+PINNED_REPOS_TOKEN=ghp_xxx npm run sync-pinned
 ```
 
-Le token doit être un Personal Access Token classique avec le scope
-`read:user` (l'API GraphQL `pinnedItems` n'est pas accessible avec le
-`GITHUB_TOKEN` par défaut des Actions). En CI, il doit être renseigné
-dans le secret de dépôt `PINNED_REPOS_TOKEN` pour que le workflow
+The token must be a classic Personal Access Token with the `read:user`
+scope (the GraphQL `pinnedItems` API isn't reachable with Actions'
+default `GITHUB_TOKEN`). In CI, it must be set in the repository secret
+`PINNED_REPOS_TOKEN` for the
 [`sync-pinned-projects.yml`](.github/workflows/sync-pinned-projects.yml)
-fonctionne.
+workflow to work.
 
-Le script édite uniquement la clé `pinned_repos` (via l'API Document du
-paquet [`yaml`](https://www.npmjs.com/package/yaml)).
+The script only edits the `pinned_repos` key (via the
+[`yaml`](https://www.npmjs.com/package/yaml) package's Document API).
 
-## Lancer en local
+## Development scripts
 
-Fichiers statiques :
+Install pinned dependencies once:
+
+```bash
+npm ci
+```
+
+Then:
+
+```bash
+npm run validate     # validate data.yaml's shape (also gates CI)
+npm run sync-pinned  # regenerate pinned_repos (needs PINNED_REPOS_TOKEN)
+npm run screenshot   # refresh docs/screenshots/preview.png via Playwright
+```
+
+## Running locally
+
+Static files:
 
 ```bash
 python3 -m http.server 8000
-# ou
+# or
 npx serve
 ```
 
-## Licence
+## License
 
-MIT — voir [`LICENSE`](LICENSE).
+MIT — see [`LICENSE`](LICENSE).

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://rem7474.github.io/link-in-bio/sitemap.xml
+Sitemap: https://remcorp.fr/sitemap.xml

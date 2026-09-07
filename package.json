@@ -1,0 +1,14 @@
+{
+  "name": "link-in-bio",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "validate": "node scripts/validate-data.mjs",
+    "sync-pinned": "node scripts/sync-pinned-projects.mjs",
+    "screenshot": "node scripts/screenshot.mjs"
+  },
+  "devDependencies": {
+    "playwright": "1.63.0",
+    "yaml": "2.9.0"
+  }
+}

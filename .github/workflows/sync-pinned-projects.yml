@@ -36,23 +36,23 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
 
       # PINNED_REPOS_TOKEN must be a classic PAT with the `read:user` scope —
       # the default GITHUB_TOKEN cannot query pinnedItems.
       - name: Sync pinned projects into data.yaml
         env:
           PINNED_REPOS_TOKEN: ${{ secrets.PINNED_REPOS_TOKEN }}
-        run: |
-          npm install --no-save yaml@2
-          node scripts/sync-pinned-projects.mjs
+        run: npm run sync-pinned
 
-      - name: Install screenshot tooling
-        run: |
-          npm install --no-save playwright@latest
-          npx playwright install --with-deps chromium
+      - name: Install Playwright browser
+        run: npx playwright install --with-deps chromium
 
       - name: Refresh site screenshot
-        run: node scripts/screenshot.mjs
+        run: npm run screenshot
 
       - name: Commit changes if data.yaml or screenshot updated
         run: |

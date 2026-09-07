@@ -16,7 +16,7 @@
   --shadow-soft: 0 8px 24px rgba(0,0,0,0.06);
 }
 
-/* Page centrée verticalement + responsive */
+/* Vertically centered, responsive page */
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   background: var(--bg);
@@ -32,10 +32,10 @@ body {
   display: flex;
   flex-direction: column;
   gap: 32px;
-  justify-content: center; /* centre verticalement le contenu principal */
+  justify-content: center; /* vertically centers the main content */
 }
 
-/* -------- Profil / Liens -------- */
+/* -------- Profile / Links -------- */
 
 .profile-section {
   display: flex;
@@ -78,7 +78,7 @@ body {
   gap: 10px;
 }
 
-/* boutons de lien (link in bio) */
+/* link buttons (link in bio) */
 .link {
   display: block;
   background: var(--primary);
@@ -98,7 +98,7 @@ body {
   box-shadow: 0 6px 18px rgba(0,0,0,0.2);
 }
 
-/* -------- Projets -------- */
+/* -------- Projects -------- */
 
 .projects-section {
   background: transparent;
@@ -168,21 +168,59 @@ body {
   color: #888888;
 }
 
-/* -------- Animations apparition haut -> bas -------- */
+.footer-links {
+  margin-top: 4px;
+}
 
-/* État initial : invisible + légèrement décalé vers le bas */
+.footer-links a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.footer-links a:hover {
+  color: var(--text);
+}
+
+/* -------- Language switch -------- */
+
+.lang-toggle {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  background: var(--card-bg);
+  color: var(--text);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  box-shadow: var(--shadow-soft);
+  z-index: 10;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.lang-toggle:hover {
+  background: var(--chip-bg);
+  transform: translateY(-1px);
+}
+
+/* -------- Fade-up entrance animations -------- */
+
+/* Initial state: invisible + slightly offset downward */
 .fade-up {
   opacity: 0;
   transform: translateY(16px);
 }
 
-/* État visible */
+/* Visible state */
 .fade-up.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Transition par défaut pour les éléments avec fade-up */
+/* Default transition for elements with fade-up */
 .profile-section.fade-up,
 .projects-section.fade-up,
 .footer.fade-up,
@@ -200,7 +238,7 @@ body {
   .page {
     padding: 24px 12px;
     gap: 24px;
-    justify-content: flex-start; /* sur mobile : scroll naturel */
+    justify-content: flex-start; /* natural scroll on mobile */
   }
 
   .profile-card {
@@ -216,7 +254,7 @@ body {
   }
 }
 
-/* -------- Mode sombre -------- */
+/* -------- Dark mode -------- */
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -241,5 +279,9 @@ body {
 
   .avatar {
     border-color: rgba(255,255,255,0.1);
+  }
+
+  .lang-toggle {
+    border-color: rgba(255,255,255,0.08);
   }
 }

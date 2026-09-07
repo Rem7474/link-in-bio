@@ -14,6 +14,19 @@ const errors = [];
 const fail = (path, message) => errors.push(`${path}: ${message}`);
 const isNonEmptyString = (v) => typeof v === "string" && v.length > 0;
 
+// Text fields (profile.bio, projects[].description) accept either a plain
+// string or a {fr, en} object for bilingual content — see main.js's
+// resolveText(). pinned_repos[].description is always a plain string
+// (auto-synced from the GitHub repo description) but this same shape
+// check applies fine to it too.
+const isValidText = (v) => {
+  if (isNonEmptyString(v)) return true;
+  if (typeof v === "object" && v !== null) {
+    return Object.values(v).some(isNonEmptyString);
+  }
+  return false;
+};
+
 function validateLink(link, path) {
   if (typeof link !== "object" || link === null) {
     fail(path, "must be an object with label/url");
@@ -39,8 +52,8 @@ function validateItemList(list, key) {
       return;
     }
     if (!isNonEmptyString(item.title)) fail(`${path}.title`, "must be a non-empty string");
-    if (item.description != null && typeof item.description !== "string") {
-      fail(`${path}.description`, "must be a string");
+    if (item.description != null && !isValidText(item.description)) {
+      fail(`${path}.description`, "must be a string or a {fr, en} object");
     }
     if (item.links == null || !Array.isArray(item.links)) {
       fail(`${path}.links`, "must be a list");
@@ -68,7 +81,7 @@ if (typeof data !== "object" || data === null) {
     fail("profile", "is required and must be an object");
   } else {
     if (!isNonEmptyString(profile.name)) fail("profile.name", "must be a non-empty string");
-    if (!isNonEmptyString(profile.bio)) fail("profile.bio", "must be a non-empty string");
+    if (!isValidText(profile.bio)) fail("profile.bio", "must be a non-empty string or a {fr, en} object");
     if (!isNonEmptyString(profile.avatar)) fail("profile.avatar", "must be a non-empty string");
     if (profile.links == null || !Array.isArray(profile.links)) {
       fail("profile.links", "must be a list");

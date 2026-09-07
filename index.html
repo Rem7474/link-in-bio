@@ -5,18 +5,18 @@
   <title>Rémy Cuvelier – Liens &amp; Projets</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Rémy Cuvelier, apprenti ingénieur avant-vente spécialisé en SD-WAN et cybersécurité. Retrouvez mes liens et mes projets (ServerSupervisor, comparateur électricité, CarsTCO)." />
-  <link rel="canonical" href="https://rem7474.github.io/link-in-bio/" />
+  <link rel="canonical" href="https://remcorp.fr/" />
 
-  <!-- Open Graph / réseaux sociaux -->
+  <!-- Open Graph / social sharing -->
   <meta property="og:type" content="profile" />
   <meta property="og:title" content="Rémy Cuvelier – Liens &amp; Projets" />
   <meta property="og:description" content="Apprenti ingénieur avant-vente – Annecy, France. Spécialisé en SD-WAN et cybersécurité." />
-  <meta property="og:image" content="https://rem7474.github.io/link-in-bio/avatar.jpg" />
-  <meta property="og:url" content="https://rem7474.github.io/link-in-bio/" />
+  <meta property="og:image" content="https://remcorp.fr/avatar.jpg" />
+  <meta property="og:url" content="https://remcorp.fr/" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Rémy Cuvelier – Liens &amp; Projets" />
   <meta name="twitter:description" content="Apprenti ingénieur avant-vente – Annecy, France. Spécialisé en SD-WAN et cybersécurité." />
-  <meta name="twitter:image" content="https://rem7474.github.io/link-in-bio/avatar.jpg" />
+  <meta name="twitter:image" content="https://remcorp.fr/avatar.jpg" />
 
   <link rel="icon" href="avatar.jpg" type="image/jpeg" />
   <link rel="apple-touch-icon" href="avatar.jpg" />
@@ -29,7 +29,7 @@
 <body>
   <main class="page">
 
-    <!-- Profil / Liens : le contenu statique ci-dessous doit rester synchro avec data.yaml (fallback no-JS + anti-CLS) -->
+    <!-- Profile / Links: the static content below must stay in sync with data.yaml (no-JS fallback + anti-CLS) -->
     <section class="profile-section fade-up">
       <div class="profile-card fade-up">
         <img id="avatar" src="avatar.jpg" alt="Photo de profil" class="avatar" width="104" height="104" />
@@ -47,30 +47,33 @@
       </div>
     </section>
 
-    <!-- Projets mis en avant (édité à la main dans data.yaml) -->
+    <!-- Featured projects (hand-edited in data.yaml) -->
     <section class="projects-section fade-up">
-      <h2 class="section-title fade-up">Projets</h2>
+      <h2 class="section-title fade-up" data-i18n="sectionProjects">Projets</h2>
 
       <div id="projects" class="projects-grid">
         <noscript>
-          <p style="text-align:center;">Activez JavaScript pour voir la liste des projets.</p>
+          <p style="text-align:center;">Activez JavaScript pour voir la liste des projets. / Enable JavaScript to see the project list.</p>
         </noscript>
       </div>
     </section>
 
-    <!-- Dépôts épinglés GitHub (synchronisés automatiquement, voir scripts/sync-pinned-projects.mjs) -->
+    <!-- GitHub pinned repositories (auto-synced, see scripts/sync-pinned-projects.mjs) -->
     <section class="projects-section fade-up">
-      <h2 class="section-title fade-up">Dépôts épinglés</h2>
+      <h2 class="section-title fade-up" data-i18n="sectionPinned">Dépôts épinglés</h2>
 
       <div id="pinned-repos" class="projects-grid">
         <noscript>
-          <p style="text-align:center;">Activez JavaScript pour voir la liste des dépôts épinglés.</p>
+          <p style="text-align:center;">Activez JavaScript pour voir la liste des dépôts épinglés. / Enable JavaScript to see the pinned repositories.</p>
         </noscript>
       </div>
     </section>
 
     <footer class="footer fade-up">
       <p id="footer-text">Rémy Cuvelier</p>
+      <p class="footer-links">
+        <a href="https://github.com/Rem7474/link-in-bio" target="_blank" rel="noopener" data-i18n="footerSource">Code source</a>
+      </p>
     </footer>
   </main>
 
