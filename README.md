@@ -7,7 +7,7 @@
 Nom, bio, liens de contact et projets — tout est piloté par un seul
 fichier YAML. Mise à jour automatique des dépôts épinglés GitHub.
 
-### 👉 [**rem7474.github.io/link-in-bio**](https://rem7474.github.io/link-in-bio/) 👈
+### 👉 [**remcorp.fr**](https://remcorp.fr) 👈
 
 </div>
 
