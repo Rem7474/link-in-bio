@@ -44,6 +44,15 @@ projects: #  - title: Comparateur électricité France
 # run, but only this key — the rest of the file (and its comments) is
 # preserved.
 pinned_repos:
+  - title: AutoLedger
+    description: "Self-hosted TCO ledger for electric, hybrid and combustion
+      vehicles: energy, financing, tires, tolls, maintenance and carpooling. Any
+      brand: TeslaMate, CSV or manual PWA."
+    links:
+      - label: Site
+        url: https://rem7474.github.io/AutoLedger/
+      - label: GitHub
+        url: https://github.com/Rem7474/AutoLedger
   - title: ServerSupervisor
     description: "🖥️ Dashboard de supervision d'infrastructure : monitoring
       VMs/Docker/APT, alertes, tâches planifiées, support Proxmox VE et Nginx
@@ -78,15 +87,6 @@ pinned_repos:
         url: https://park.remcorp.fr/
       - label: GitHub
         url: https://github.com/Rem7474/AnnecyPark
-  - title: CarsTCO
-    description: 🚗 Comparez le coût total de possession (TCO) de 2 à 6 véhicules
-      (thermique, électrique). Financement, énergie, entretien, fiscalité
-      française, revente.
-    links:
-      - label: Site
-        url: http://carstco.remcorp.fr/
-      - label: GitHub
-        url: https://github.com/Rem7474/CarsTCO
   - title: OpenCharge
     description: 🔌 Carte interactive des bornes de recharge en France avec tarifs
       multi-opérateurs (Izivia, Electra, Tesla, Freshmile…). Go + React +
