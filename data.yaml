@@ -45,9 +45,9 @@ projects: #  - title: Comparateur électricité France
 # preserved.
 pinned_repos:
   - title: AutoLedger
-    description: "Self-hosted TCO ledger for electric, hybrid and combustion
-      vehicles: energy, financing, tires, tolls, maintenance and carpooling. Any
-      brand: TeslaMate, CSV or manual PWA."
+    description: "Self-hosted ledger of what your car really costs per km: energy,
+      financing, tires, tolls, maintenance and carpooling. Any make, fed by
+      hand, CSV, Home Assistant or TeslaMate."
     links:
       - label: Site
         url: https://rem7474.github.io/AutoLedger/
