@@ -44,10 +44,18 @@ projects: #  - title: Comparateur électricité France
 # run, but only this key — the rest of the file (and its comments) is
 # preserved.
 pinned_repos:
+  - title: mealmcp
+    description: 🍽️ Meal planning, shopping list and pantry stock with a built-in
+      MCP server (OAuth) for AI assistants
+    links:
+      - label: Site
+        url: https://rem7474.github.io/mealmcp/
+      - label: GitHub
+        url: https://github.com/Rem7474/mealmcp
   - title: AutoLedger
-    description: "Self-hosted ledger of what your car really costs per km: energy,
-      financing, tires, tolls, maintenance and carpooling. Any make, fed by
-      hand, CSV, Home Assistant or TeslaMate."
+    description: "🚗 Self-hosted ledger of what your car really costs per km:
+      energy, financing, tires, tolls, maintenance and carpooling. Any make, fed
+      by hand, CSV, Home Assistant or TeslaMate."
     links:
       - label: Site
         url: https://rem7474.github.io/AutoLedger/
@@ -87,12 +95,3 @@ pinned_repos:
         url: https://park.remcorp.fr/
       - label: GitHub
         url: https://github.com/Rem7474/AnnecyPark
-  - title: OpenCharge
-    description: 🔌 Carte interactive des bornes de recharge en France avec tarifs
-      multi-opérateurs (Izivia, Electra, Tesla, Freshmile…). Go + React +
-      PostGIS, pilotée par viewport.
-    links:
-      - label: Site
-        url: https://opencharge.remcorp.fr/
-      - label: GitHub
-        url: https://github.com/Rem7474/OpenCharge
